@@ -71,9 +71,8 @@ All transformations were done inside Power Query before building the dashboard i
 The final Power BI dashboard presents insights through visual storytelling. Below are some of the key metrics and visualizations:
 
 📊 Overview Cards
-Total Sales: 672 Million USD
-
-Total Customers: 23.91K
+- Total Sales: 672 Million USD
+- Total Customers: 23.91K
 
 🧩 Visual Insights
 Visualization	Description
