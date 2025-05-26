@@ -62,8 +62,10 @@ let
     DayOfWeek = Table.AddColumn(MonthName , "Day of Week", each Date.ToText([Date], "dddd"))
 in
     DayOfWeek
-```m
-Each dimension table was created by removing duplicates, generating unique keys (Customer ID, Dealer ID, Product ID), and merging those keys back into the fact table. All transformations were done inside Power Query before building the dashboard in Power BI.
+```
+
+Each dimension table was created by removing duplicates, generating unique keys (Customer ID, Dealer ID, Product ID), and merging those keys back into the fact table. 
+All transformations were done inside Power Query before building the dashboard in Power BI.
 
 📈 Dashboard Highlights
 The final Power BI dashboard presents insights through visual storytelling. Below are some of the key metrics and visualizations:
