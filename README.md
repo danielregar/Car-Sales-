@@ -77,17 +77,17 @@ Total Customers: 23.91K
 
 🧩 Visual Insights
 Visualization	Description
-Sales by Dealer	Highlights top-performing dealerships like Rabun Used Car, U-Haul CO, etc.
-Sales by Company	Shows contribution from brands like Chevrolet, Ford, Dodge, etc.
-Sales Trend	Visualizes sales performance over time from Jan 2022 to Oct 2023.
-Sales by Model	Top-selling car models (e.g., LS400, Jetta, Ram Pickup).
-Sales by Body Style	Comparison across styles: Sedan, Hatchback, SUV, etc.
-Sales by Gender	Customer demographics: Male (78.5%), Female (21.5%).
-Sales by Income	Breakdown of customers by annual income ranges.
-Sales by Region	Performance by location: Janesville, Aurora, Middletown, etc.
-Sales by Engine	Analysis of engine types (Overhead Camshaft, Double Overhead, etc.).
-Sales by Transmission	Auto vs. Manual sales comparison.
+- Sales by Dealer	Highlights top-performing dealerships like Rabun Used Car, U-Haul CO, etc.
+- Sales by Company	Shows contribution from brands like Chevrolet, Ford, Dodge, etc.
+- Sales Trend	Visualizes sales performance over time from Jan 2022 to Oct 2023.
+- Sales by Model	Top-selling car models (e.g., LS400, Jetta, Ram Pickup).
+- Sales by Body Style	Comparison across styles: Sedan, Hatchback, SUV, etc.
+- Sales by Gender	Customer demographics: Male (78.5%), Female (21.5%).
+- Sales by Income	Breakdown of customers by annual income ranges.
+- Sales by Region	Performance by location: Janesville, Aurora, Middletown, etc.
+- Sales by Engine	Analysis of engine types (Overhead Camshaft, Double Overhead, etc.).
+- Sales by Transmission	Auto vs. Manual sales comparison.
 
 🛠 Tools Used
-Power BI: Data modeling, DAX, dashboard creation
-Power Query (M language): Data transformation and dimension building
+- Power BI: Data modeling, DAX, dashboard creation
+- Power Query (M language): Data transformation and dimension building
