@@ -68,7 +68,8 @@ Each dimension table was created by removing duplicates, generating unique keys 
 All transformations were done inside Power Query before building the dashboard in Power BI.
 
 📈 Dashboard Highlights
-The final Power BI dashboard presents insights through visual storytelling. Below are some of the key metrics and visualizations:
+The final Power BI dashboard presents insights through visual storytelling. 
+Below are some of the key metrics and visualizations:
 
 📊 Overview Cards
 - Total Sales: 672 Million USD
