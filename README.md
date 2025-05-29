@@ -6,7 +6,7 @@ This project showcases an end-to-end data modeling and dashboard visualization u
 
 ## 📥 Dataset
 
-- **Source**: Kaggle – *Car Sales Report Dataset*  
+- **Source**: [Kaggle – Car Sales Report Dataset](https://www.kaggle.com/datasets/missionjee/car-sales-report)
 - **Format**: `.xlsx` file containing raw transactional sales data  
 
 ---
@@ -34,20 +34,20 @@ Contains the main transactional records including:
 - Annual Income
 
 **Dealer Dimension**
-- Dealer ID
+- Dealer ID (generated using index)
 - Dealer Name
 - Dealer No
 
-> *Note: Dealer Region is kept in the fact table since a single dealer name/number may appear in different regions.*
+> **Note: Dealer Region is kept in the fact table since a single dealer name/number may appear in different regions.**
 
 **Product Dimension**
-- Product ID
+- Product ID (generated using index)
 - Company / Brand
 - Model
 - Body Style
 - Color
 
-> *Note: Transmission and Engine Type were excluded from this table and placed in the fact table, since they're tied to the sale, not the general product catalog.*
+> **Note: Transmission and Engine Type were excluded from this table and placed in the fact table, since they're tied to the sale, not the general product catalog.**
 
 **Date Dimension**  
 Created using a Power Query function that dynamically generates a date range and related fields.
@@ -76,13 +76,14 @@ Each dimension table was created by removing duplicates, generating unique keys,
 
 At first, the dataset included a car_id field labeled as a **"unique identifier for each car"**, but it wasn’t clear whether it was tied to the customer, car model, or transaction.
 
-Later, I found out it represents each individual sale — so it basically functions as a purchase ID.
+Later, I found out it represents each sale, so it functions as a purchase ID.
 
 That’s why I decided to restructure the dataset myself using **a star schema**, to clarify these relationships and make dashboarding easier.
 
 Also… not gonna lie, shoutout to YouTube tutorials for teaching me data modeling in the first place 😄. Sometimes learning by doing just clicks better.
 
-📈 Dashboard Highlights
+**📈 Dashboard Highlights**
+
 The final Power BI dashboard presents insights through visual storytelling. Below are some of the key findings:
 
 **📊 Summary Cards:**
