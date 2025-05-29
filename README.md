@@ -106,12 +106,9 @@ The final Power BI dashboard presents insights through visual storytelling. Belo
 
 **💬 Customer Insights**
 
-**Gender Breakdown:**
+**Gender Breakdown:** - Male: 79% and Female: 21%
 
-- Male: 79
-- Female: 21%
-
-**Transmission Preference**: **Automatic: $355.1 million**
+**Transmission Preference**: Automatic: $355.1 million
 
 **🏢 Dealer Performance**
 
@@ -119,9 +116,7 @@ Top Dealer: Rabun Used Car Sales — $37+ million in total sales
 
 **📈 Sales Trend Over Time**
 
-From January 2022 to October 2023, the sales pattern repeats annually:
-
-**Sales rise from Q1 to Q3**. Then **drop in Q4**
+From January 2022 to October 2023, the sales pattern repeats annually: **Sales rise from Q1 to Q3**. Then **drop in Q4**
 
 **🛠 Tools Used**
 
