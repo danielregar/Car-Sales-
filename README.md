@@ -1,13 +1,13 @@
 # 🚗 America Car Sales Analysis – Power BI Dashboard
 
-This project showcases an end-to-end data modeling and dashboard visualization using **Power BI**, based on real-world car sales data. The objective is to analyze dealership performance, product trends, customer demographics, and regional sales patterns using a clean **star schema** approach.
+This project showcases an end-to-end data modeling and dashboard visualization using Power BI, based on real-world car sales data. The objective is to analyze dealership performance, product trends, customer demographics, and regional sales patterns using a clean **star schema** approach.
 
 ---
 
 ## 📥 Dataset
 
-- **Source**: [Kaggle – Car Sales Report Dataset](https://www.kaggle.com/datasets/missionjee/car-sales-report)
-- **Format**: `.xlsx` file containing raw transactional sales data
+- **Source**: Kaggle – *Car Sales Report Dataset*  
+- **Format**: `.xlsx` file containing raw transactional sales data  
 
 ---
 
@@ -15,39 +15,45 @@ This project showcases an end-to-end data modeling and dashboard visualization u
 
 The original flat table was transformed into a **star schema** using Power Query. The schema includes:
 
-### 🔷 Fact Table
-- `FactSales` (later named `fig_sales`): contains the main transactional records including Date, Car ID, Customer, Dealer, and Price.
+### 🔷 Fact Table: `fig_sales`
+Contains the main transactional records including:
+- Date
+- Car ID (unique for each transaction)
+- Customer
+- Dealer
+- Price
+- Product-related info (e.g., transmission, engine type — because variations exist at the transaction level)
 
 ### 🔶 Dimension Tables
-- **Customer Dimension**
-  - Customer ID (generated using index)
-  - Customer Name
-  - Gender
-  - Phone
-  - Annual Income
 
-- **Dealer Dimension**
-  - Dealer ID
-  - Dealer Name
-  - Dealer Region
-  - Dealer No
+**Customer Dimension**
+- Customer ID (generated using index)
+- Name
+- Gender
+- Phone
+- Annual Income
 
-- **Product Dimension**
-  - Product ID
-  - Company / Brand
-  - Model
-  - Body Style
-  - Color
-  - Engine
-  - Transmission
+**Dealer Dimension**
+- Dealer ID
+- Dealer Name
+- Dealer No
 
-- **Date Dimension**
-  Created using a Power Query function that dynamically generates a date range between two given dates. Here’s the code used:
+> *Note: Dealer Region is kept in the fact table since a single dealer name/number may appear in different regions.*
 
-```m
-// Create Date Dimension
+**Product Dimension**
+- Product ID
+- Company / Brand
+- Model
+- Body Style
+- Color
+
+> *Note: Transmission and Engine Type were excluded from this table and placed in the fact table, since they're tied to the sale, not the general product catalog.*
+
+**Date Dimension**  
+Created using a Power Query function that dynamically generates a date range and related fields.
+
+```powerquery
 (StartDate as date, EndDate as date) =>
-
 let
     StartDate = #date(Date.Year(StartDate), Date.Month(StartDate), Date.Day(StartDate)),
     EndDate = #date(Date.Year(EndDate), Date.Month(EndDate), Date.Day(EndDate)),
@@ -62,32 +68,62 @@ let
     DayOfWeek = Table.AddColumn(MonthName , "Day of Week", each Date.ToText([Date], "dddd"))
 in
     DayOfWeek
-```
+````
+Each dimension table was created by removing duplicates, generating unique keys, and merging those keys into the fact table — all done in Power Query before visualizing in Power BI.
 
-Each dimension table was created by removing duplicates, generating unique keys (Customer ID, Dealer ID, Product ID), and merging those keys back into the fact table. 
-All transformations were done inside Power Query before building the dashboard in Power BI.
+
+**🧠 Why I Used a Star Schema**
+
+At first, the dataset included a car_id field labeled as a **"unique identifier for each car"**, but it wasn’t clear whether it was tied to the customer, car model, or transaction.
+
+Later, I found out it represents each individual sale — so it basically functions as a purchase ID.
+
+That’s why I decided to restructure the dataset myself using **a star schema**, to clarify these relationships and make dashboarding easier.
+
+Also… not gonna lie, shoutout to YouTube tutorials for teaching me data modeling in the first place 😄. Sometimes learning by doing just clicks better.
 
 📈 Dashboard Highlights
-The final Power BI dashboard presents insights through visual storytelling. 
-Below are some of the key metrics and visualizations:
+The final Power BI dashboard presents insights through visual storytelling. Below are some of the key findings:
 
-📊 Overview Cards
-- Total Sales: 672 Million USD
-- Total Customers: 23.91K
+**📊 Summary Cards:**
+- Total Sales: $672 million
+- Total Customers: 23,910
+- Avg Annual Income: $830,000
 
-🧩 Visual Insights
-Visualization	Description
-- Sales by Dealer	Highlights top-performing dealerships like Rabun Used Car, U-Haul CO, etc.
-- Sales by Company	Shows contribution from brands like Chevrolet, Ford, Dodge, etc.
-- Sales Trend	Visualizes sales performance over time from Jan 2022 to Oct 2023.
-- Sales by Model	Top-selling car models (e.g., LS400, Jetta, Ram Pickup).
-- Sales by Body Style	Comparison across styles: Sedan, Hatchback, SUV, etc.
-- Sales by Gender	Customer demographics: Male (78.5%), Female (21.5%).
-- Sales by Income	Breakdown of customers by annual income ranges.
-- Sales by Region	Performance by location: Janesville, Aurora, Middletown, etc.
-- Sales by Engine	Analysis of engine types (Overhead Camshaft, Double Overhead, etc.).
-- Sales by Transmission	Auto vs. Manual sales comparison.
+**📍 Regional Trends**
 
-🛠 Tools Used
-- Power BI: Data modeling, DAX, dashboard creation
-- Power Query (M language): Data transformation and dimension building
+- Regions Covered: **Aurora, Austin, Greenville, Janesville, Middletown, Pasco, and Scottsdale**
+
+- Top Region by Sales: **Austin with $117 million (~17.4% of total sales)**
+
+**🚘 Company & Product Highlights**
+
+- Top Company: **Chevrolet — $47.65 million**
+- Top Model: **Lexus LS400 — $14.26 million**
+- Top Body Style: **SUV — $170.6 million**
+- Top Color: **Pale White — preferred by 11,256 customers**
+
+**💬 Customer Insights**
+
+**Gender Breakdown:**
+
+- Male: 79
+- Female: 21%
+
+**Transmission Preference**: **Automatic: $355.1 million**
+
+**🏢 Dealer Performance**
+
+Top Dealer: Rabun Used Car Sales — $37+ million in total sales
+
+**📈 Sales Trend Over Time**
+
+From January 2022 to October 2023, the sales pattern repeats annually:
+
+**Sales rise from Q1 to Q3**. Then **drop in Q4**
+
+**🛠 Tools Used**
+
+ - **Power BI** – for modeling, DAX, and dashboard creation
+ - **Power Query (M)** – for data transformation and building dimensions
+ - **Excel** – original data format
